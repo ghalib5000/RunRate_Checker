@@ -21,37 +21,31 @@ namespace RunRate_Checker
     /// </summary>
     public partial class MainWindow : Window
     {
-        double  ReqRate = 0, CurrentRate = 0, CurrentOver = 0;
-        int Runs = 0, CurrentRuns = 0, Balls = 0, Balls2 =0;
-        
-        private void Add_Runs(int r)
+        double  ReqRate = 0, CurrentRate = 0, CurrentOver = 0,totalOvers=0;
+        int inRuns = 0, CurrentRuns = 0, Balls = 0, Balls2 =0;
+        BallAdder badder;
+        RunAdder radder;
+       
+        //this method willbe used whenever we want to increase the balls
+        public void ballMethod()
         {
-            CurrentRuns += r;
-            curRuns.Text = Convert.ToString(CurrentRuns);
-            Check_Current_Rate();
+            badder.Add_Ball( );
+            curOvers.Text= badder.updateCurrentBalls();
+            oversInput.Text = badder.updateTotalBalls();
         }
-        private void Add_Ball()
+        public void runMethod (int i)
         {
-            Balls++;
-            if (Balls == 6)
-            {
-                Balls2++;
-                Balls = 0;
-            }
-            curOvers.Text = Convert.ToString(Balls2 + "." + Balls);
-            CurrentOver = Convert.ToDouble(curOvers.Text);
+            radder.Add_Runs(i);
+            runsInput.Text = radder.updateTotalRuns();
+            curRuns.Text = radder.updateCurrentRuns();
         }
-
         private void A1r_Click(object sender, RoutedEventArgs e)
         {
-            Add_Ball();
-            Add_Runs(1);
+
+            ballMethod();
+            runMethod(1);
         }
-        private void Check_Current_Rate()
-        {
-            CurrentRate = Math.Round(CurrentRuns / CurrentOver,2 );
-            curRate.Text =  Convert.ToString(CurrentRate);
-        }
+
         
         public MainWindow()
         {
@@ -64,11 +58,14 @@ namespace RunRate_Checker
             {
                 try
                 {
-                    Runs = Convert.ToInt32(runsInput.Text);
+                    totalOvers = Convert.ToInt32(oversInput.Text);
+                    inRuns = Convert.ToInt32(runsInput.Text);
+                    radder = new RunAdder(inRuns);
+                    badder = new BallAdder(totalOvers);
 
-                    ReqRate = Runs/ Convert.ToInt32(oversInput.Text);
+                    ReqRate = inRuns/ totalOvers;
                     reqRate.Text = Convert.ToString(ReqRate);
-                    Check_Current_Rate();
+                    //Check_Current_Rate();
                     curRate.Text = Convert.ToString(CurrentRate);
                 }
 

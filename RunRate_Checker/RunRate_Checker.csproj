@@ -55,8 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BallAdder.cs" />
-    <Compile Include="RunAdder.cs" />
+    <Compile Include="BallAdder\BallAdder.cs" />
+    <Compile Include="RunAdder\RunAdder.cs" />
+    <Compile Include="RunRateChecker\RateChecker.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
