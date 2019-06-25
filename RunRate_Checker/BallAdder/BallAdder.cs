@@ -31,11 +31,11 @@ namespace RunRate_Checker
                 totalOvers = Math.Round((totalOvers - 0.4), 1);
                 
             }
-            if (totalOvers<0)
+         /*   if (totalOvers<0)
                 {
                     throw new ArgumentOutOfRangeException();
 
-                }
+                }*/
         }
         public string updateCurrentBalls()
         {

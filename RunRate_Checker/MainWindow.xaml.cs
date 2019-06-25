@@ -32,12 +32,26 @@ namespace RunRate_Checker
             badder.Add_Ball( );
             curOvers.Text= badder.updateCurrentBalls();
             oversInput.Text = badder.updateTotalBalls();
+            if(Convert.ToDouble(oversInput.Text)<=-0)
+            {
+                oversInput.Text = "Out of Overs";
+                Enabler(false);
+                entovr.Text = "Enter Overs";
+                entrun.Text = "Enter Runs";
+            }
         }
         public void runMethod (int i)
         {
             radder.Add_Runs(i);
             runsInput.Text = radder.updateTotalRuns();
             curRuns.Text = radder.updateCurrentRuns();
+            if (Convert.ToInt32(runsInput.Text) <= 0)
+            {
+                runsInput.Text = "Out of Runs";
+                Enabler(false);
+                entovr.Text = "Enter Overs";
+                entrun.Text = "Enter Runs";
+            }
         }
         public void checkRate()
         {
@@ -89,26 +103,10 @@ namespace RunRate_Checker
                     badder = new BallAdder(totalOvers);
                     rchecker = new RunRateChecker.RateChecker();
                     checkRate();
-                  {
-                        entovr.Text = "remaining overs";
-                        entrun.Text = "remaining runs";
-                    runsInput.IsEnabled = false;
-                    oversInput.IsEnabled = false;
-                    okInput.IsEnabled = false;
-                        a1r.IsEnabled = true;
-                        a2r.IsEnabled = true;
-                        a3r.IsEnabled = true;
-                        a4r.IsEnabled = true;
-                        a4Wd.IsEnabled = true;
-                        a5r.IsEnabled = true;
-                        a6r.IsEnabled = true;
-                        aW.IsEnabled = true;
-                        aWd.IsEnabled = true;
-                        anb.IsEnabled = true;
-                        amdn.IsEnabled = true;
-                        alb.IsEnabled = true;
-                        adtb.IsEnabled = true;
-                    }
+
+                    entovr.Text = "remaining overs";
+                    entrun.Text = "remaining runs";
+                    Enabler(true);
                 }
 
                 catch (FormatException ex)
@@ -124,6 +122,26 @@ namespace RunRate_Checker
             {
                 reqRate.Text = "please enter runs and overs";
             }
+        }
+
+        private void Enabler(bool ip)
+        {
+            runsInput.IsEnabled = !ip;
+            oversInput.IsEnabled = !ip;
+            okInput.IsEnabled = !ip;
+            a1r.IsEnabled = ip;
+            a2r.IsEnabled = ip;
+            a3r.IsEnabled = ip;
+            a4r.IsEnabled = ip;
+            a4Wd.IsEnabled = ip;
+            a5r.IsEnabled = ip;
+            a6r.IsEnabled = ip;
+            aW.IsEnabled = ip;
+            aWd.IsEnabled = ip;
+            anb.IsEnabled = ip;
+            amdn.IsEnabled = ip;
+            alb.IsEnabled = ip;
+            adtb.IsEnabled = ip;
         }
 
         private void A3r_Click(object sender, RoutedEventArgs e)
