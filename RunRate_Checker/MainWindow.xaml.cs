@@ -21,7 +21,7 @@ namespace RunRate_Checker
     /// </summary>
     public partial class MainWindow : Window
     {
-        double  ReqRate = 0, CurrentRate = 0, CurrentOver = 0,totalOvers=0;
+        double  totalOvers=0;
         int inRuns = 0;
         BallAdder badder;
         RunAdder radder;
@@ -89,13 +89,26 @@ namespace RunRate_Checker
                     badder = new BallAdder(totalOvers);
                     rchecker = new RunRateChecker.RateChecker();
                     checkRate();
-                    reqRate.Text = rchecker.Check_Required_Rate();
-                    curRate.Text = rchecker.Check_Current_Rate();
-
-                    //ReqRate = inRuns/ totalOvers;
-                    //    reqRate.Text = Convert.ToString(ReqRate);
-                    //Check_Current_Rate();
-                    //  curRate.Text = Convert.ToString(CurrentRate);
+                  {
+                        entovr.Text = "remaining overs";
+                        entrun.Text = "remaining runs";
+                    runsInput.IsEnabled = false;
+                    oversInput.IsEnabled = false;
+                    okInput.IsEnabled = false;
+                        a1r.IsEnabled = true;
+                        a2r.IsEnabled = true;
+                        a3r.IsEnabled = true;
+                        a4r.IsEnabled = true;
+                        a4Wd.IsEnabled = true;
+                        a5r.IsEnabled = true;
+                        a6r.IsEnabled = true;
+                        aW.IsEnabled = true;
+                        aWd.IsEnabled = true;
+                        anb.IsEnabled = true;
+                        amdn.IsEnabled = true;
+                        alb.IsEnabled = true;
+                        adtb.IsEnabled = true;
+                    }
                 }
 
                 catch (FormatException ex)
@@ -113,5 +126,11 @@ namespace RunRate_Checker
             }
         }
 
+        private void A3r_Click(object sender, RoutedEventArgs e)
+        {
+            ballMethod();
+            runMethod(3);
+            checkRate();
+        }
     }
 }

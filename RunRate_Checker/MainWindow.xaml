@@ -7,31 +7,36 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Enter Overs" HorizontalAlignment="Left" Margin="25,27,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Enter Runs" HorizontalAlignment="Left" Margin="324,27,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="oversInput" HorizontalAlignment="Left" Height="23" Margin="135,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <TextBox x:Name="runsInput" HorizontalAlignment="Left" Height="23" Margin="447,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Button x:Name="okInput" Content="Ok" HorizontalAlignment="Left" Margin="610,36,0,0" VerticalAlignment="Top" Width="67" FontSize="16" Click="OkInput_Click"/>
-        <Label Content="Required Rate" HorizontalAlignment="Left" Margin="324,78,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Current Rate" HorizontalAlignment="Left" Margin="25,78,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="curRate" HorizontalAlignment="Left" Height="23" Margin="135,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" IsEnabled="False"/>
-        <TextBox x:Name="reqRate" HorizontalAlignment="Left" Height="23" Margin="447,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="275" FontSize="16" IsEnabled="False"/>
-        <Button x:Name="a1r" Content="Add 1 Run" HorizontalAlignment="Left" Margin="25,169,0,0" VerticalAlignment="Top" FontSize="16" Click="A1r_Click"/>
-        <Button x:Name="a2r" Content="Add 2 Runs" HorizontalAlignment="Left" Margin="135,169,0,0" VerticalAlignment="Top" FontSize="16" Click="A2r_Click"/>
-        <Button x:Name="a3r" Content="Add 3 Runs" HorizontalAlignment="Left" Margin="260,169,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button x:Name="a4r" Content="Add 4 Runs" HorizontalAlignment="Left" Margin="384,169,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button x:Name="a5r" Content="Add 5 Runs" HorizontalAlignment="Left" Margin="514,169,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button x:Name="a6r" Content="Add 6 Runs" HorizontalAlignment="Left" Margin="637,169,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button x:Name="aW" Content="Add Wicket" HorizontalAlignment="Left" Margin="25,211,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button x:Name="aWd" Content="Add  Wide" HorizontalAlignment="Left" Margin="135,211,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button x:Name="a4Wd" Content="Add 4+Wide" HorizontalAlignment="Left" Margin="260,211,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button x:Name="anb" Content="Add No Ball" HorizontalAlignment="Left" Margin="384,211,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Current Overs" HorizontalAlignment="Left" Margin="25,116,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="curOvers" HorizontalAlignment="Left" Height="23" Margin="137,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" IsEnabled="False"/>
-        <Button x:Name="amdn" Content="Add Maiden" HorizontalAlignment="Left" Margin="514,218,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Current Runs" HorizontalAlignment="Left" Margin="326,116,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="curRuns" HorizontalAlignment="Left" Height="23" Margin="447,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" IsEnabled="False"/>
-        <Button x:Name="adtb" Content="Add dot ball" HorizontalAlignment="Left" Margin="643,217,0,0" VerticalAlignment="Top" FontSize="16" Click="adtb_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="oversInput" HorizontalAlignment="Left" Height="23" Margin="135,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="runsInput" HorizontalAlignment="Left" Height="23" Margin="447,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Grid.ColumnSpan="2"/>
+        <Button x:Name="okInput" Content="Ok" HorizontalAlignment="Left" Margin="610,36,0,0" VerticalAlignment="Top" Width="67" FontSize="16" Click="OkInput_Click" Grid.ColumnSpan="2"/>
+        <Label Content="Required Rate" HorizontalAlignment="Left" Margin="319,78,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
+        <Label Content="Current Rate" HorizontalAlignment="Left" Margin="25,78,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="curRate" HorizontalAlignment="Left" Height="23" Margin="135,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" IsEnabled="False" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="reqRate" HorizontalAlignment="Left" Height="23" Margin="447,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="275" FontSize="16" IsEnabled="False" Grid.ColumnSpan="2"/>
+        <Button x:Name="a1r" Content="Add 1 Run" HorizontalAlignment="Left" Margin="25,169,0,0" VerticalAlignment="Top" FontSize="16" Click="A1r_Click" Grid.ColumnSpan="2" IsEnabled="False" Width="91"/>
+        <Button x:Name="a2r" Content="Add 2 Runs" HorizontalAlignment="Left" Margin="135,169,0,0" VerticalAlignment="Top" FontSize="16" Click="A2r_Click" Grid.ColumnSpan="2" IsEnabled="False" Width="95"/>
+        <Button x:Name="a3r" Content="Add 3 Runs" HorizontalAlignment="Left" Margin="260,169,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2" IsEnabled="False" Width="93" Click="A3r_Click"/>
+        <Button x:Name="a4r" Content="Add 4 Runs" HorizontalAlignment="Left" Margin="384,169,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2" IsEnabled="False" Width="88"/>
+        <Button x:Name="a5r" Content="Add 5 Runs" HorizontalAlignment="Left" Margin="514,169,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2" IsEnabled="False" Width="90"/>
+        <Button x:Name="a6r" Content="Add 6 Runs" HorizontalAlignment="Left" Margin="643,169,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2" IsEnabled="False" Width="91"/>
+        <Button x:Name="aW" Content="Add Wicket" HorizontalAlignment="Left" Margin="25,211,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2" IsEnabled="False" Width="91"/>
+        <Button x:Name="aWd" Content="Add  Wide" HorizontalAlignment="Left" Margin="135,211,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2" IsEnabled="False" Width="95"/>
+        <Button x:Name="a4Wd" Content="Add 4+Wide" HorizontalAlignment="Left" Margin="260,211,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2" IsEnabled="False"/>
+        <Button x:Name="anb" Content="Add No Ball" HorizontalAlignment="Left" Margin="384,211,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2" IsEnabled="False"/>
+        <Label Content="Current Overs" HorizontalAlignment="Left" Margin="25,116,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="curOvers" HorizontalAlignment="Left" Height="23" Margin="137,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" IsEnabled="False" Grid.ColumnSpan="2"/>
+        <Button x:Name="amdn" Content="Add Maiden" HorizontalAlignment="Left" Margin="514,211,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2" IsEnabled="False" Width="90"/>
+        <Label Content="Current Runs" HorizontalAlignment="Left" Margin="326,116,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="curRuns" HorizontalAlignment="Left" Height="23" Margin="447,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" IsEnabled="False" Grid.ColumnSpan="2"/>
+        <Button x:Name="adtb" Content="Add dot ball" HorizontalAlignment="Left" Margin="643,211,0,0" VerticalAlignment="Top" FontSize="16" Click="adtb_Click" Grid.ColumnSpan="2" IsEnabled="False"/>
+        <Button x:Name="alb" Content="Add Leg By" HorizontalAlignment="Left" Margin="25,256,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2" IsEnabled="False" Width="91"/>
+        <TextBlock x:Name="entrun" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="350,36,0,0" TextWrapping="Wrap" Text="Enter Runs" VerticalAlignment="Top" Width="78" FontSize="16"/>
+        <TextBlock x:Name="entovr" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="33,38,0,0" TextWrapping="Wrap" Text="Enter Overs" VerticalAlignment="Top" Width="91" FontSize="16"/>
 
     </Grid>
 </Window>

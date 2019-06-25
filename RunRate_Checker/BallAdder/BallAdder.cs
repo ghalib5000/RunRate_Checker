@@ -14,7 +14,7 @@ namespace RunRate_Checker
         string temp = "";
         public BallAdder(double totover)
         {
-            totalOvers = totover;
+            totalOvers =totover;
         }
         public void Add_Ball()
         {
@@ -24,12 +24,18 @@ namespace RunRate_Checker
                 Balls2++;
                 Balls = 0;
             }
-            totalOvers -= 0.1;
+            totalOvers = Math.Round((totalOvers- 0.1),1);
             temp = Convert.ToString(totalOvers);
             if (temp.Contains(".9"))
             {
-                totalOvers -= 0.4;
+                totalOvers = Math.Round((totalOvers - 0.4), 1);
+                
             }
+            if (totalOvers<0)
+                {
+                    throw new ArgumentOutOfRangeException();
+
+                }
         }
         public string updateCurrentBalls()
         {

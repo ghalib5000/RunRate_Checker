@@ -19,7 +19,11 @@ namespace RunRate_Checker
         {
             CurrentRuns += r;
             InitialRuns -= r;
+            if (InitialRuns < 0)
+            {
+                throw new ArgumentOutOfRangeException();
 
+            }
         }
 
         public string updateCurrentRuns()
