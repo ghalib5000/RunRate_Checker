@@ -17,7 +17,7 @@
         <TextBox x:Name="curRate" HorizontalAlignment="Left" Height="23" Margin="135,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" IsEnabled="False"/>
         <TextBox x:Name="reqRate" HorizontalAlignment="Left" Height="23" Margin="447,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="275" FontSize="16" IsEnabled="False"/>
         <Button x:Name="a1r" Content="Add 1 Run" HorizontalAlignment="Left" Margin="25,169,0,0" VerticalAlignment="Top" FontSize="16" Click="A1r_Click"/>
-        <Button x:Name="a2r" Content="Add 2 Runs" HorizontalAlignment="Left" Margin="135,169,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button x:Name="a2r" Content="Add 2 Runs" HorizontalAlignment="Left" Margin="135,169,0,0" VerticalAlignment="Top" FontSize="16" Click="A2r_Click"/>
         <Button x:Name="a3r" Content="Add 3 Runs" HorizontalAlignment="Left" Margin="260,169,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Button x:Name="a4r" Content="Add 4 Runs" HorizontalAlignment="Left" Margin="384,169,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Button x:Name="a5r" Content="Add 5 Runs" HorizontalAlignment="Left" Margin="514,169,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -31,6 +31,7 @@
         <Button x:Name="amdn" Content="Add Maiden" HorizontalAlignment="Left" Margin="514,218,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Current Runs" HorizontalAlignment="Left" Margin="326,116,0,0" VerticalAlignment="Top" FontSize="16"/>
         <TextBox x:Name="curRuns" HorizontalAlignment="Left" Height="23" Margin="447,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" IsEnabled="False"/>
+        <Button x:Name="adtb" Content="Add dot ball" HorizontalAlignment="Left" Margin="643,217,0,0" VerticalAlignment="Top" FontSize="16" Click="adtb_Click"/>
 
     </Grid>
 </Window>

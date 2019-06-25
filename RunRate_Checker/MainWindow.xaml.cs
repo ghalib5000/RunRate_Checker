@@ -22,10 +22,11 @@ namespace RunRate_Checker
     public partial class MainWindow : Window
     {
         double  ReqRate = 0, CurrentRate = 0, CurrentOver = 0,totalOvers=0;
-        int inRuns = 0, CurrentRuns = 0, Balls = 0, Balls2 =0;
+        int inRuns = 0;
+        Game_Manager.Game_Manager manager = new Game_Manager.Game_Manager();
         BallAdder badder;
         RunAdder radder;
-       
+        RunRateChecker.RateChecker rchecker;
         //this method willbe used whenever we want to increase the balls
         public void ballMethod()
         {
@@ -39,14 +40,34 @@ namespace RunRate_Checker
             runsInput.Text = radder.updateTotalRuns();
             curRuns.Text = radder.updateCurrentRuns();
         }
+
+        private void A2r_Click(object sender, RoutedEventArgs e)
+        {
+            ballMethod();
+            runMethod(2);
+            curRate.Text = rchecker.Check_Current_Rate();
+            reqRate.Text = rchecker.Check_Required_Rate();
+        }
+
         private void A1r_Click(object sender, RoutedEventArgs e)
         {
 
             ballMethod();
             runMethod(1);
+            curRate.Text = rchecker.Check_Current_Rate();
+            reqRate.Text = rchecker.Check_Required_Rate();
+        }
+        private void adtb_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            ballMethod();
+            runMethod(0);
+            curRate.Text = rchecker.Check_Current_Rate();
+            reqRate.Text = rchecker.Check_Required_Rate();
         }
 
-        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -62,11 +83,16 @@ namespace RunRate_Checker
                     inRuns = Convert.ToInt32(runsInput.Text);
                     radder = new RunAdder(inRuns);
                     badder = new BallAdder(totalOvers);
+                    rchecker = new RunRateChecker.RateChecker();
+                    manager = new Game_Manager.Game_Manager(totalOvers, inRuns);
+                    manager = rchecker;
+                    reqRate.Text = manager.Check_Required_Rate();
 
-                    ReqRate = inRuns/ totalOvers;
-                    reqRate.Text = Convert.ToString(ReqRate);
+
+                    //ReqRate = inRuns/ totalOvers;
+                    //    reqRate.Text = Convert.ToString(ReqRate);
                     //Check_Current_Rate();
-                    curRate.Text = Convert.ToString(CurrentRate);
+                    //  curRate.Text = Convert.ToString(CurrentRate);
                 }
 
                 catch (FormatException ex)

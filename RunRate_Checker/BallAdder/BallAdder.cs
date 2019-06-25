@@ -8,8 +8,9 @@ namespace RunRate_Checker
 {
     class BallAdder
     {
-        double  CurrentOver = 0,totalOvers=0;
-        int Balls = 0, Balls2 =0;
+        public double totalOvers { get; set; }
+        public double CurrentOver { get; set; }
+        int Balls = 0, Balls2 = 0;
         string temp = "";
         public BallAdder(double totover)
         {
@@ -23,12 +24,12 @@ namespace RunRate_Checker
                 Balls2++;
                 Balls = 0;
             }
-            totalOvers-=0.1;
+            totalOvers -= 0.1;
             temp = Convert.ToString(totalOvers);
-            if(temp.Contains(".9"))
+            if (temp.Contains(".9"))
             {
                 totalOvers -= 0.4;
-            }   
+            }
         }
         public string updateCurrentBalls()
         {
@@ -38,9 +39,9 @@ namespace RunRate_Checker
         }
         public string updateTotalBalls()
         {
-           string  tb = Convert.ToString(totalOvers);
+            string tb = Convert.ToString(totalOvers);
             return tb;
         }
-      
+
     }
 }

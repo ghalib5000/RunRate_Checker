@@ -8,17 +8,18 @@ namespace RunRate_Checker
 {
     class RunAdder
     {
-       public  RunAdder(int inirun)
+        public RunAdder(int inirun)
         {
             InitialRuns = inirun;
         }
-        
-        int InitialRuns = 0, CurrentRuns = 0;
+
+       public int InitialRuns { get; set; }
+        public int CurrentRuns { get; set; }
         public void Add_Runs(int r)
         {
             CurrentRuns += r;
             InitialRuns -= r;
-          
+
         }
 
         public string updateCurrentRuns()
@@ -28,7 +29,7 @@ namespace RunRate_Checker
         }
         public string updateTotalRuns()
         {
-           string tr = Convert.ToString(InitialRuns);
+            string tr = Convert.ToString(InitialRuns);
             return tr;
         }
 
