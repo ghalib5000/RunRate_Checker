@@ -23,7 +23,6 @@ namespace RunRate_Checker
     {
         double  ReqRate = 0, CurrentRate = 0, CurrentOver = 0,totalOvers=0;
         int inRuns = 0;
-        Game_Manager.Game_Manager manager = new Game_Manager.Game_Manager();
         BallAdder badder;
         RunAdder radder;
         RunRateChecker.RateChecker rchecker;
@@ -40,13 +39,20 @@ namespace RunRate_Checker
             runsInput.Text = radder.updateTotalRuns();
             curRuns.Text = radder.updateCurrentRuns();
         }
-
+        public void checkRate()
+        {
+            rchecker.CurrentOver = badder.CurrentOver;
+            rchecker.CurrentRuns = radder.CurrentRuns;
+            rchecker.InitialRuns = radder.InitialRuns;
+            rchecker.totalOvers = badder.totalOvers;
+            curRate.Text = rchecker.Check_Current_Rate();
+            reqRate.Text = rchecker.Check_Required_Rate();
+        }
         private void A2r_Click(object sender, RoutedEventArgs e)
         {
             ballMethod();
             runMethod(2);
-            curRate.Text = rchecker.Check_Current_Rate();
-            reqRate.Text = rchecker.Check_Required_Rate();
+            checkRate();
         }
 
         private void A1r_Click(object sender, RoutedEventArgs e)
@@ -54,8 +60,7 @@ namespace RunRate_Checker
 
             ballMethod();
             runMethod(1);
-            curRate.Text = rchecker.Check_Current_Rate();
-            reqRate.Text = rchecker.Check_Required_Rate();
+            checkRate();
         }
         private void adtb_Click(object sender, RoutedEventArgs e)
         {
@@ -63,8 +68,7 @@ namespace RunRate_Checker
 
             ballMethod();
             runMethod(0);
-            curRate.Text = rchecker.Check_Current_Rate();
-            reqRate.Text = rchecker.Check_Required_Rate();
+            checkRate();
         }
 
 
@@ -84,10 +88,9 @@ namespace RunRate_Checker
                     radder = new RunAdder(inRuns);
                     badder = new BallAdder(totalOvers);
                     rchecker = new RunRateChecker.RateChecker();
-                    manager = new Game_Manager.Game_Manager(totalOvers, inRuns);
-                    manager = rchecker;
-                    reqRate.Text = manager.Check_Required_Rate();
-
+                    checkRate();
+                    reqRate.Text = rchecker.Check_Required_Rate();
+                    curRate.Text = rchecker.Check_Current_Rate();
 
                     //ReqRate = inRuns/ totalOvers;
                     //    reqRate.Text = Convert.ToString(ReqRate);
